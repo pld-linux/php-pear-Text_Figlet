@@ -5,7 +5,7 @@
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - Render text using FIGlet fonts
-Summary(pl):	%{_pearname} - Renderowanie tekstu z u¿yciem czcionek FIGlet
+Summary(pl):	%{_pearname} - Renderowanie tekstu z u¿yciem fontów FIGleta
 Name:		php-pear-%{_pearname}
 Version:	0.8.0
 Release:	1
@@ -25,7 +25,7 @@ Engine for use FIGlet fonts to rendering text.
 In PEAR status of this package is: %{_status}.
 
 %description -l pl
-Silnik do renderowania tekstu z u¿yciem czcionek FIGlet
+Silnik do renderowania tekstu z u¿yciem fontów FIGleta.
 
 Ta klasa ma w PEAR status: %{_status}.
 
@@ -43,5 +43,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/
+%doc docs/*
 %{php_pear_dir}/%{_class}/*.php

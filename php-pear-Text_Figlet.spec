@@ -7,14 +7,14 @@
 Summary:	%{_pearname} - Render text using FIGlet fonts
 Summary(pl):	%{_pearname} - Renderowanie tekstu z u¿yciem fontów FIGleta
 Name:		php-pear-%{_pearname}
-Version:	0.8.0
-Release:	1
+Version:	0.8.1
+Release:	0.2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	8010fee97da24e69f2c1f879e92939b9
+# Source0-md5:	843d3307b9483703b32e441243d775a5
 URL:		http://pear.php.net/package/Text_Figlet/
-BuildRequires:	rpm-php-pearprov >= 4.0.2-98
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,18 +30,22 @@ Silnik do renderowania tekstu z u¿yciem fontów FIGleta.
 Ta klasa ma w PEAR status: %{_status}.
 
 %prep
-%setup -q -c
+%pear_package_setup
+
+install -d docs/%{_pearname}
+mv ./%{php_pear_dir}/data/%{_pearname}/docs/* docs/%{_pearname}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
-
-install %{_subclass}*.php $RPM_BUILD_ROOT%{php_pear_dir}/%{_class}
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
+%pear_package_install
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*
+%doc install.log
+%doc docs/%{_pearname}/{docs/*,examples}
+%{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php

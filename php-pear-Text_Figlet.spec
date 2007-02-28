@@ -1,18 +1,18 @@
 %include	/usr/lib/rpm/macros.php
 %define		_class		Text
 %define		_subclass	Figlet
-%define		_status		beta
+%define		_status		stable
 %define		_pearname	%{_class}_%{_subclass}
 
 Summary:	%{_pearname} - Render text using FIGlet fonts
 Summary(pl):	%{_pearname} - Renderowanie tekstu z u¿yciem fontów FIGleta
 Name:		php-pear-%{_pearname}
-Version:	0.8.1
-Release:	2
+Version:	1.0.0
+Release:	1
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	843d3307b9483703b32e441243d775a5
+# Source0-md5:	4465e26ac9457122438057063697b934
 URL:		http://pear.php.net/package/Text_Figlet/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -35,9 +35,6 @@ Ta klasa ma w PEAR status: %{_status}.
 %prep
 %pear_package_setup
 
-install -d docs/%{_pearname}
-mv ./%{php_pear_dir}/data/%{_pearname}/docs/* docs/%{_pearname}
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
@@ -49,6 +46,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc install.log
-%doc docs/%{_pearname}/{docs/*,examples}
+%doc docs/%{_pearname}/docs/*
 %{php_pear_dir}/.registry/*.reg
 %{php_pear_dir}/%{_class}/*.php
+%{php_pear_dir}/data/Text_Figlet

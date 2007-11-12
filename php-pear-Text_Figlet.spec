@@ -8,7 +8,7 @@ Summary:	%{_pearname} - Render text using FIGlet fonts
 Summary(pl.UTF-8):	%{_pearname} - Renderowanie tekstu z użyciem fontów FIGleta
 Name:		php-pear-%{_pearname}
 Version:	1.0.0
-Release:	1
+Release:	2
 License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -17,7 +17,7 @@ URL:		http://pear.php.net/package/Text_Figlet/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
-Requires:	php-common >= 3:4.0.4+
+Requires:	php-common >= 3:4.0.4
 Requires:	php-pear
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)

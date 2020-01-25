@@ -1,6 +1,5 @@
 %define		_status		stable
 %define		_pearname	Text_Figlet
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - Render text using FIGlet fonts
 Summary(pl.UTF-8):	%{_pearname} - Renderowanie tekstu z użyciem fontów FIGleta
 Name:		php-pear-%{_pearname}

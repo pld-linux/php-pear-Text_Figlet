@@ -1,0 +1,22 @@
+Replace deprecated curly-brace string offset access (removed in PHP 8.0).
+
+--- Text_Figlet-1.0.2.org/Text/Figlet.php	2010-01-01 00:00:00.000000000 +0200
++++ Text_Figlet-1.0.2/Text/Figlet.php	2026-05-04 00:00:00.000000000 +0200
+@@ -245,7 +245,7 @@
+                     $i = hexdec(substr($i, 2));
+                 } else {
+                     // If octal
+-                    if ($i{0} === '0' && $i !== '0' || substr($i, 0, 2) == '-0') {
++                    if ($i[0] === '0' && $i !== '0' || substr($i, 0, 2) == '-0') {
+                         $i = octdec($i);
+                     }
+                 }
+@@ -288,7 +288,7 @@
+                 $lt = hexdec(substr($str, $i+2, 4));
+                 $i += 5;
+             } else {
+-                $lt = ord($str{$i});
++                $lt = ord($str[$i]);
+             }
+
+             $hb = preg_quote($this->hardblank, '/');
